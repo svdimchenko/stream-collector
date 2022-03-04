@@ -73,10 +73,6 @@ abstract class ConfigSpec extends Specification {
       body       = ""
     ),
     cors = CORSConfig(60.minutes),
-    prometheusMetrics = PrometheusMetricsConfig(
-      enabled                  = false,
-      durationBucketsInSeconds = None
-    ),
     telemetry               = Some(TelemetryConfig()),
     ssl                     = SSLConfig(enable = false, redirect = false, port = 443),
     enableDefaultRedirect   = false,

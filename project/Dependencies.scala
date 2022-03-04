@@ -32,7 +32,6 @@ object Dependencies {
     val slf4j        = "1.7.32"
     val log4j        = "2.17.0" // CVE-2021-44228
     val config       = "1.4.1"
-    val prometheus   = "0.9.0"
     val cbor         = "2.11.4" // See snowplow/snowplow/issues/4266
     val jackson      = "2.10.5.1" // force this version to mitigate security vulnerabilities
     val thrift       = "0.15.0" // force this version to mitigate security vulnerabilities
@@ -66,8 +65,6 @@ object Dependencies {
     val log4jOverSlf4j   = "org.slf4j"                        % "log4j-over-slf4j"        % V.slf4j
     val log4j            = "org.apache.logging.log4j"         % "log4j-core"              % V.log4j
     val config           = "com.typesafe"                     % "config"                  % V.config
-    val prometheus       = "io.prometheus"                    % "simpleclient"            % V.prometheus
-    val prometheusCommon = "io.prometheus"                    % "simpleclient_common"     % V.prometheus
     val cbor             = "com.fasterxml.jackson.dataformat" % "jackson-dataformat-cbor" % V.cbor
 
     // Scala

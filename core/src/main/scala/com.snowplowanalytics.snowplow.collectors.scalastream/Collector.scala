@@ -27,7 +27,6 @@ import pureconfig._
 import pureconfig.generic.auto._
 import pureconfig.generic.{FieldCoproductHint, ProductHint}
 import com.snowplowanalytics.snowplow.collectors.scalastream.sinks.Sink
-import com.snowplowanalytics.snowplow.collectors.scalastream.metrics._
 import com.snowplowanalytics.snowplow.collectors.scalastream.model._
 import com.snowplowanalytics.snowplow.collectors.scalastream.telemetry.TelemetryAkkaService
 
@@ -105,21 +104,7 @@ trait Collector {
       override def healthService    = health
     }
 
-    val prometheusMetricsService =
-      new PrometheusMetricsService(collectorConf.prometheusMetrics, scalaVersion, appVersion)
-
-    val metricsRoute = new MetricsRoute {
-      override def metricsService: MetricsService = prometheusMetricsService
-    }
-
-    val metricsDirectives = new MetricsDirectives {
-      override def metricsService: MetricsService = prometheusMetricsService
-    }
-
-    val routes =
-      if (collectorConf.prometheusMetrics.enabled)
-        metricsRoute.metricsRoute ~ metricsDirectives.logRequest(collectorRoute.collectorRoute)
-      else collectorRoute.collectorRoute
+    val routes = collectorRoute.collectorRoute
 
     lazy val redirectRoutes =
       scheme("http") {

@@ -136,10 +136,7 @@ package model {
     sink: SinkConfig,
     buffer: BufferConfig
   )
-  final case class PrometheusMetricsConfig(
-    enabled: Boolean,
-    durationBucketsInSeconds: Option[List[Double]]
-  )
+
   final case class TelemetryConfig(
     // General params
     disable: Boolean         = false,
@@ -175,7 +172,6 @@ package model {
     rootResponse: RootResponseConfig,
     cors: CORSConfig,
     streams: StreamsConfig,
-    prometheusMetrics: PrometheusMetricsConfig,
     telemetry: Option[TelemetryConfig],
     ssl: SSLConfig = SSLConfig(),
     enableDefaultRedirect: Boolean,

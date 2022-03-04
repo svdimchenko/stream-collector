@@ -24,7 +24,6 @@ trait MetricsDirectives {
 
   /**
     * Service which is used to keep track of processed http requests.
-    * One of the implementations [[com.snowplowanalytics.snowplow.collectors.scalastream.metrics.PrometheusMetricsService]]
     */
   def metricsService: MetricsService
 
